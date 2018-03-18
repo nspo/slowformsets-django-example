@@ -1,0 +1,19 @@
+{% extends "bootstrap3/bootstrap3.html" %}
+{% load bootstrap3 %}
+{% block bootstrap3_content %}
+
+    {% load crispy_forms_tags %}
+    <div class="container">
+        {% bootstrap_messages messages %}
+        <h1>{% if form.instance.pk %}Update author: {{ form.instance.name }}{% else %}New author{% endif %}</h1>
+        <form method="post" action="" class="">
+
+            {% crispy form %}
+            Books:
+            {% crispy formset formset.form.helper %}
+
+            <input class="submit" type="submit" value="Submit data">
+
+        </form>
+    </div>
+{% endblock %}
